@@ -1,0 +1,15 @@
+.box {
+  width: 700px;
+  height: 500px;
+  border: 10px solid black;
+  background-color: skyblue;
+  background-image: url("../images/love.gif"), url("../images/tree-evergreen-svgrepo-com.svg");
+  background-repeat: no-repeat, repeat-x;
+  background-size: 100px, 250px;
+  background-position: left 450px bottom, bottom;
+  /* background-attachment: fixed; */
+}
+
+body {
+  height: 3000px;
+}

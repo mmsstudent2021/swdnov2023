@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+.heading {
+    background: gray;
+    /* font-family: Trattatello; */
+    /* font-family: monospace; */
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+
+    /* font-family: 'Silkscreen','Padauk', sans-serif; */
+
+    /* font-family: 'Montserrat', sans-serif;
+    font-weight: bold; */
+    /* font-style: italic; */
+
+
+
+}
+
+#myName{
+    color: skyblue;
+    text-align: center;
+    /* text-decoration: underline; */
+    text-transform:none;
+}
+
+p{
+    /* text-align: justify; */
+    /* letter-spacing: 20px; */
+    /* word-spacing: 20px; */
+    /* font-size:15px;
+    line-height: 50px; */
+    /* font:bold  20px/40px  'Montserrat'; */
+
+}
