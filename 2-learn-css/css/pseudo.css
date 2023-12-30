@@ -1,0 +1,33 @@
+.title {
+  width: 500px;
+  border: 3px solid black;
+  padding: 20px 0;
+  text-align: center;
+  margin: 100px auto;
+  font-size: 90px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  transition-duration: 300ms;
+  transition-property: color, border-color;
+}
+
+.title:hover {
+  color: pink;
+  border-color: pink;
+}
+
+.title:active {
+  color: skyblue;
+  border-color: skyblue;
+}
+
+.input {
+  border: 3px solid black;
+}
+
+.input:focus {
+  border-color: red;
+}
+
+.input:focus-visible {
+  outline: none;
+}

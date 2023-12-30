@@ -1,0 +1,71 @@
+.img {
+  height: 200px;
+  /* opacity: 0.6; */
+  /* display: none; */
+  /* visibility: hidden; */
+  /* cursor: wait; */
+  border-bottom: 5px dashed;
+}
+
+body {
+  /* background-image: url("../images/pattern.png");
+  background-size: 200px; */
+  height: 3000px;
+}
+
+.box {
+  border: 5px solid black;
+  height: 300px;
+  overflow: scroll;
+}
+
+.float-box {
+  border: 5px solid black;
+  height: 300px;
+}
+
+.float-box-img {
+  height: 100px;
+  float: right;
+}
+.float-box-text {
+  clear: both;
+}
+
+.white-space-test {
+  white-space: pre;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  border: 2px solid black;
+  word-break: break-all;
+  /* white-space: nowrap; */
+}
+
+.no-select {
+  user-select: none;
+}
+
+.pe-none {
+  pointer-events: none;
+}
+
+.test {
+  padding: 20px;
+  border: 3px solid yellow;
+}
+
+.test:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.test:active {
+  font-size: 30px;
+}
+
+.italic {
+  font-style: italic;
+}
