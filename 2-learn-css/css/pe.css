@@ -1,0 +1,30 @@
+.obj {
+  background-color: lightgray;
+  display: inline-block;
+}
+
+.obj::before {
+  content: "Good ";
+  background-color: lightskyblue;
+}
+
+.obj::after {
+  content: " is me.";
+  background-color: lightpink;
+}
+
+.para {
+}
+
+.para::first-letter {
+  /* font-size: 50px; */
+}
+
+.para::first-line {
+  color: orangered;
+}
+
+.para::selection {
+  background: lightgreen;
+  color: gray;
+}
