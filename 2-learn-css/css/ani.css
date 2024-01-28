@@ -1,5 +1,160 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  padding: 50px;
+}
+
+.main-title {
+  margin-bottom: 50px;
+  /* animation-name: xyz;
+  animation-duration: 1500ms;
+  animation-delay: 3000ms;
+  animation-fill-mode: both; */
+}
+
+.box {
+}
+
+.obj {
+  border: 2px solid black;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: #b4e8fe;
+  /* 
+  animation-name: xyz;
+  animation-duration: 500ms;
+  animation-fill-mode: backwards; */
+}
+
+.slide-out-right {
+  animation-name: slideOutRight;
+  animation-fill-mode: both;
+}
+
+@keyframes slideOutRight {
+  /* from {
+    transform: translate(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(120%) scale(0.5);
+    opacity: 0;
+  } */
+
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.5) translate(0) rotate(-45deg);
+  }
+
+  60% {
+    transform: scale(0.5) translateX(-300px) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(0.5) translate(1200px);
+  }
+}
+
+.rotate-in {
+  animation-name: rotateIn;
+  animation-fill-mode: both;
+  transform-origin: 0 0;
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(45deg) scale(0);
+    opacity: 0;
+    background-color: orange;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    background-color: lightskyblue;
+  }
+}
+
+.zoom-in {
+  animation-name: ZoomIn;
+  animation-fill-mode: both;
+}
+
+@keyframes ZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ani-slide-in-right {
+  animation-name: slideInRight;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(120%) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation-name: slideInLeft;
+  animation-fill-mode: both;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
+  animation-timing-function: steps(5);
+}
+
+.speed-500 {
+  animation-duration: 500ms;
+}
+
+.speed-1000 {
+  animation-duration: 1000ms;
+}
+
+.speed-1500 {
+  animation-duration: 1500ms;
+}
+
+.delay-0 {
+  animation-delay: 0ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.delay-2000 {
+  animation-delay: 2000ms;
+}
+
+.obj-title {
+  margin-bottom: 15px;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
 }

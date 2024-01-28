@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="Tbar.ss01" format="2">
+	<advance width="765"/>
+	<outline>
+		<component base="Tbar" xScale="-1" xOffset="765"/>
+	</outline>
+</glyph>

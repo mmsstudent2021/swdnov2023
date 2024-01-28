@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+.dropdown {
+  /* border: 1px solid black; */
+  width: 150px;
+  position: relative;
+}
+
+.dropdown button {
+  display: block;
+  width: 100%;
+}
+
+.dropdown button:focus + .dropbox {
+  /* display: block; */
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.dropbox:hover {
+  color: red;
+}
+
+.dropbox {
+  transition-duration: 200ms;
+  padding: 5px;
+  margin-top: 5px;
+  transform: translateY(15px);
+  /* display: none; */
+  opacity: 0;
+  border: 1px solid black;
+  position: absolute;
+  background-color: white;
+  width: 150px;
+  pointer-events: none;
+  left: 30px;
+}

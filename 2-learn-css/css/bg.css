@@ -1,15 +1,81 @@
 .box {
   width: 700px;
   height: 500px;
-  border: 10px solid black;
+  border: 10px solid rgba(0, 0, 0, 0.213);
+  padding: 30px;
+  box-sizing: border-box;
   background-color: skyblue;
-  background-image: url("../images/love.gif"), url("../images/tree-evergreen-svgrepo-com.svg");
+  background-image: url("../images/poe-mamhe-thar-2.jpg");
+  background-size: 200px;
+  background-repeat: no-repeat;
+
+  /* background-origin: border-box; */
+  background-clip: border-box;
+
+  /* background-image: url("../images/love.gif"),
+    url("../images/tree-evergreen-svgrepo-com.svg");
   background-repeat: no-repeat, repeat-x;
   background-size: 100px, 250px;
-  background-position: left 450px bottom, bottom;
+  background-position: left 450px bottom, bottom; */
   /* background-attachment: fixed; */
 }
 
 body {
   height: 3000px;
+}
+
+#gt {
+  font-size: 4rem;
+  color: rgba(0, 0, 0, 0);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+  background: #000046; 
+  background: -webkit-linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); 
+  background: linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); 
+
+  /* background-image: url("../images/poe-mamhe-thar-8.jpg"); */
+  /* background-size: auto 100%; */
+  background-clip: text;
+}
+
+.boxgt {
+  height: 300px;
+  /* background-image: linear-gradient(10deg, skyblue, pink, lightgreen); */
+  /* background-image: radial-gradient(skyblue, pink); */
+
+  /* background: #000046; /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(
+    10deg,
+    #1cb5e0,
+    #000046
+  ); 
+  background: linear-gradient(
+    10deg,
+    #1cb5e0,
+    #000046
+  );  */
+
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(225, 49, 12, 0.5) 0px,
+      rgba(225, 49, 12, 0.5) 40px,
+      transparent 40px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(225, 49, 12, 0.5) 0px,
+      rgba(225, 49, 12, 0.5) 40px,
+      transparent 40px,
+      transparent 80px
+    ),
+    linear-gradient(90deg, #ffffff, #ffffff);
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="brevecombcy" format="2">
+	<advance width="0"/>
+	<anchor x="-306" y="760" name="_top"/>
+	<outline>
+		<component base="uni0306"/>
+	</outline>
+</glyph>
