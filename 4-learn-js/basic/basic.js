@@ -108,13 +108,121 @@
 // console.log(student.skill[1]);
 // console.log(student.skill[2]);
 
-const obj = {};
-let z = "c";
+// const obj = {};
+// let z = "c";
 
-obj.a = "aaa";
-obj.b = "bbb";
-obj.c = "ccc"
+// obj.a = "aaa";
+// obj.b = "bbb";
+// obj.c = "ccc"
 
-console.log(obj);
-console.log(obj["a"]);
-console.log(obj[z]);
+// console.log(obj);
+// console.log(obj["a"]);
+// console.log(obj[z]);
+
+// const name = "Mg Mg";
+// let age = 15;
+// let township = "Kyauk Myaung";
+
+// let pocketMoney = 200;
+
+// let orangePrice = 50;
+
+// pocketMoney -= orangePrice;
+
+// // console.log(pocketMoney);
+
+// const bag = ["Myanmar book", "English Book", "Bio Book"];
+
+// console.log(bag);
+
+// let pen = false;
+
+// let canMgMgFriSmoke = true;
+// let canMgMgSmoke = false;
+
+// const information = {
+//   name,
+//   age,
+//   township,
+//   canSmoke: canMgMgSmoke,
+// };
+
+// const student1 = {
+//   name: "Kyaw Kyaw",
+//   age: 17,
+//   township: "haling",
+//   canSmoke: true,
+// };
+
+// const student2 = {
+//   name: "Mya Mya",
+//   age: 15,
+//   township: "sanchaung",
+//   canSmoke: false,
+// };
+
+// const student3 = {
+//   name: "Zaw Zaw",
+//   age: 16,
+//   township: "bahan",
+//   canSmoke: true,
+// };
+
+// const students = [student1, student2, student3, information];
+
+// console.log(students);
+// console.table(students);
+
+// console.log(typeof information);
+// console.log(typeof bag);
+// console.log(typeof students);
+
+// console.log(typeof name);
+// console.log(typeof age);
+// console.log(typeof canMgMgFriSmoke);
+
+// let x;
+// console.log(x);
+// let arr = [];
+// console.log(arr[5]);
+// function run(){
+
+// }
+
+// console.log(run());
+
+// let y = null;
+
+// console.log(y);
+
+// console.log(1 != 6);
+
+// function run(){
+//     console.log("hello");
+// }
+
+// run()
+
+function triangle() {
+  console.log("*");
+  console.log("* *");
+  return "I'm triangle";
+  console.log("* * *");
+  console.log("* * * *");
+}
+
+console.log(triangle());
+console.log(triangle());
+console.log(triangle());
+
+function area(width=0, height=0) {
+  console.log(width);
+  console.log(height);
+  return width * height;
+}
+
+console.log(area());
+console.log(area(25,50));
+console.log(area(16,60));
+console.log(area(30,40));
+// console.log(area(16, 60));
