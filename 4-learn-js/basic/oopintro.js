@@ -268,22 +268,22 @@ class BankAccount {
   }
 }
 
-const ba1 = new BankAccount();
+// const ba1 = new BankAccount();
 // console.log(ba1.#money);
 // ba1.#money = 5000;
 // console.log(ba1.#money);
 
-console.log(ba1.checkBalance());
-ba1.deposit(50000);
-console.log(ba1.checkBalance());
-ba1.deposit(3000);
-console.log(ba1.checkBalance());
-ba1.deposit(2000);
-console.log(ba1.checkBalance());
-console.log(ba1.transfer("kyaw kyaw", 500));
-console.log(ba1.transfer("Mg Mg", 1500));
-console.log(ba1.checkBalance());
-console.log(ba1.withdraw(3000));
-console.log(ba1.checkBalance());
-console.log(ba1.withdraw(70000));
-console.log(ba1.checkBalanceWithCurrency());
+// console.log(ba1.checkBalance());
+// ba1.deposit(50000);
+// console.log(ba1.checkBalance());
+// ba1.deposit(3000);
+// console.log(ba1.checkBalance());
+// ba1.deposit(2000);
+// console.log(ba1.checkBalance());
+// console.log(ba1.transfer("kyaw kyaw", 500));
+// console.log(ba1.transfer("Mg Mg", 1500));
+// console.log(ba1.checkBalance());
+// console.log(ba1.withdraw(3000));
+// console.log(ba1.checkBalance());
+// console.log(ba1.withdraw(70000));
+// console.log(ba1.checkBalanceWithCurrency());
