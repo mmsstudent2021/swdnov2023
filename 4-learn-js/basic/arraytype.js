@@ -12,21 +12,21 @@
 
 // console.log(arr);
 
-const nums = [1, 4, 2, 5];
+// const nums = [1, 4, 2, 5];
 // const chars = ["a", "o", "c", "e"];
 // const emojis = ["😊", "🤣"];
 
-console.log(nums);
+// console.log(nums);
 
 // console.log(nums.pop());
 // console.log(nums.pop());
 // console.log(nums.pop());
 
-console.log(nums.shift());
-console.log(nums.shift());
-console.log(nums.shift());
+// console.log(nums.shift());
+// console.log(nums.shift());
+// console.log(nums.shift());
 
-console.log(nums);
+// console.log(nums);
 
 // const result = nums.concat(chars).concat(emojis);
 
