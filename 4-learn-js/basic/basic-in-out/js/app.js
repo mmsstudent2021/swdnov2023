@@ -34,20 +34,22 @@
 
 // 1. select an element
 
-const heading = document.getElementById("heading");
-const textInput = document.getElementById("textInput");
-const btn = document.getElementById("btn");
-const listGroup = document.getElementById("listGroup");
+// const heading = document.getElementById("heading");
+// const textInput = document.getElementById("textInput");
+// const btn = document.getElementById("btn");
+// const listGroup = document.getElementById("listGroup");
+
+// console.log(heading);
 
 // change title
 
 // 2. set
-function changeTitle() {
-  heading.innerText = textInput.value;
+// function changeTitle() {
+//   heading.innerText = textInput.value;
 
-  // 3. clear
-  textInput.value = "";
-}
+//   // 3. clear
+//   textInput.value = "";
+// }
 
 // 4. event listen
 // btn.onclick = changeTitle;
@@ -85,3 +87,53 @@ function changeTitle() {
 // obj.c = "zzz";
 
 // console.log(obj);
+
+// const paragraphs = document.getElementsByTagName("p");
+// const lists = document.getElementsByClassName("list");
+// console.log(paragraphs);
+// console.log(paragraphs[0]);
+// console.log(paragraphs[1]);
+// console.log(lists);
+// console.log(lists[0]);
+// console.log(lists[0].innerHTML);
+// console.log(lists[1].innerText);
+
+// const paragraphs = document.querySelectorAll("p");
+// const lists = document.querySelectorAll(".list");
+// const heading = document.querySelector("#heading");
+// console.log(heading.className);
+// console.log(heading.classList);
+// console.log(heading.classList[0]);
+// console.log(heading.classList[1]);
+// console.log(heading.classList[2]);
+// const btn = document.querySelector("#btn");
+// const headingLarger = document.querySelector("#headingLarger");
+// const headingSmaller = document.querySelector("#headingSmaller");
+// btn.onclick = () => {
+//   heading.style.color = "green";
+//   heading.style.backgroundColor = "gray";
+// };
+// headingLarger.onclick = () => {
+//   const current = parseInt(heading.style.fontSize);
+//   heading.style.fontSize = `${current + 5}px`;
+// };
+// headingSmaller.onclick = () => {
+//   const current = parseInt(heading.style.fontSize);
+//   heading.style.fontSize = `${current - 5}px`;
+// };
+
+// console.log(heading);
+// console.log(heading.classList);
+// console.log(heading.className);
+// console.log(heading.id);
+// console.log(heading.title);
+// console.log(heading.style);
+// console.log(heading.style.color);
+// console.log(heading.style.textAlign);
+// console.log(heading[0].innerHTML);
+// console.log(lists);
+// console.log(lists[0].innerHTML);
+// console.log(lists[1].innerHTML);
+// console.log(paragraphs);
+
+// console.log(document.querySelector(".list").innerHTML);
