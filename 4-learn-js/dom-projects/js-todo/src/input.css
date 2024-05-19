@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cutive+Mono&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cutive+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .list input:checked {
+  width: 30px;
+  height: 30px;
+} */
