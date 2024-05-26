@@ -45,7 +45,7 @@ const createNewList = (currentTask) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-4"
+            class="size-4 pointer-events-none"
             >
             <path
                 stroke-linecap="round"
@@ -61,7 +61,7 @@ const createNewList = (currentTask) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-4"
+            class="size-4 pointer-events-none"
             >
             <path
                 stroke-linecap="round"
@@ -75,32 +75,74 @@ const createNewList = (currentTask) => {
 
     `;
 
-  const listDoneCheck = list.querySelector(".list-done-check");
-  const listTask = list.querySelector(".list-task");
-  const listEditBtn = list.querySelector(".list-edit-btn");
-  const listDelBtn = list.querySelector(".list-del-btn");
+  // const listDoneCheck = list.querySelector(".list-done-check");
+  // const listTask = list.querySelector(".list-task");
+  // const listEditBtn = list.querySelector(".list-edit-btn");
+  // const listDelBtn = list.querySelector(".list-del-btn");
 
-  listDoneCheck.addEventListener("change", () => {
-    // console.log(currentTask, " is done");
-    updateDoneTaskTotal();
-    listTask.classList.toggle("line-through");
-    list.classList.add("duration-200");
-    list.classList.toggle("opacity-20");
-    list.classList.toggle("scale-90");
-    if (listDoneCheck.checked) {
-      listEditBtn.setAttribute("disabled", true);
-    } else {
-      listEditBtn.removeAttribute("disabled");
-    }
-  });
+  // listDoneCheck.addEventListener("change", () => {
+  //   // console.log(currentTask, " is done");
+  //   updateDoneTaskTotal();
+  //   listTask.classList.toggle("line-through");
+  //   list.classList.add("duration-200");
+  //   list.classList.toggle("opacity-20");
+  //   list.classList.toggle("scale-90");
+  //   if (listDoneCheck.checked) {
+  //     listEditBtn.setAttribute("disabled", true);
+  //   } else {
+  //     listEditBtn.removeAttribute("disabled");
+  //   }
+  // });
 
-  listDelBtn.addEventListener("click", () => {
+  // listDelBtn.addEventListener("click", () => {
+  //   if (window.confirm("Are you sure to delete ?")) {
+  //     list.remove();
+  //   }
+  // });
+
+  // listEditBtn.addEventListener("click", () => {
+  //   listEditBtn.setAttribute("disabled", true);
+  //   listDoneCheck.setAttribute("disabled", true);
+  //   const currentTask = listTask.innerText;
+  //   const newTaskInput = document.createElement("input");
+  //   newTaskInput.className =
+  //     "border border-stone-950 font-mono px-2 py-1 w-[180px] focus-visible:outline-none ";
+  //   newTaskInput.value = currentTask;
+  //   listTask.after(newTaskInput);
+  //   newTaskInput.focus();
+  //   listTask.classList.add("hidden");
+
+  //   newTaskInput.addEventListener("blur", () => {
+  //     listEditBtn.removeAttribute("disabled");
+  //     listDoneCheck.removeAttribute("disabled");
+
+  //     console.log("edit finish");
+  //     listTask.innerText = newTaskInput.value;
+  //     listTask.classList.remove("hidden");
+  //     newTaskInput.remove();
+  //   });
+  // });
+
+  return list;
+};
+
+const listGroupHandler = (event) => {
+  const list = event.target.closest(".list");
+  // console.log(list);
+  if (event.target.classList.contains("list-del-btn")) {
+    console.log("U del");
     if (window.confirm("Are you sure to delete ?")) {
       list.remove();
+      updateDoneTaskTotal();
+      updateTaskTotal();
     }
-  });
+  }
+  if (event.target.classList.contains("list-edit-btn")) {
 
-  listEditBtn.addEventListener("click", () => {
+    const listTask = list.querySelector(".list-task");
+    const listEditBtn = list.querySelector(".list-edit-btn");
+    const listDoneCheck = list.querySelector(".list-done-check");
+
     listEditBtn.setAttribute("disabled", true);
     listDoneCheck.setAttribute("disabled", true);
     const currentTask = listTask.innerText;
@@ -121,10 +163,28 @@ const createNewList = (currentTask) => {
       listTask.classList.remove("hidden");
       newTaskInput.remove();
     });
-  });
+  }
 
-  return list;
+  if (event.target.classList.contains("list-done-check")) {
+    console.log("U check");
+    const listTask = list.querySelector(".list-task");
+    const listEditBtn = list.querySelector(".list-edit-btn");
+    const listDoneCheck = list.querySelector(".list-done-check");
+
+    listTask.classList.toggle("line-through");
+    list.classList.add("duration-200");
+    list.classList.toggle("opacity-20");
+    list.classList.toggle("scale-90");
+    if (listDoneCheck.checked) {
+      listEditBtn.setAttribute("disabled", true);
+    } else {
+      listEditBtn.removeAttribute("disabled");
+    }
+
+    updateDoneTaskTotal();
+  }
 };
 
 // event
 addTaskBtn.addEventListener("click", addList);
+listGroup.addEventListener("click", listGroupHandler);

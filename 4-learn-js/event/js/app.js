@@ -5,18 +5,90 @@ const clickMeBtn = document.querySelector("#clickMeBtn");
 const addForm = document.querySelector("#addForm");
 const img = document.querySelector("#img");
 const link = document.querySelector("#link");
+const greeting = document.querySelector("#greeting");
+const removeShowClick = document.querySelector("#removeShowClick");
 
-link.addEventListener("click", (event) => {
-  event.preventDefault();
-  alert("hello Hello");
-  console.log(event);
-  console.log(this);
-  console.log(link.innerHTML);
+const aa = document.querySelector("#aa");
+const bb = document.querySelector("#bb");
+const cc = document.querySelector("#cc");
+const dd = document.querySelector("#dd");
+const playground = document.querySelector("#playground");
+
+const lists = document.querySelectorAll(".list");
+const listGroup = document.querySelector("#listGroup");
+
+listGroup.addEventListener("click", (event) => {
+  console.log(event.target);
 });
 
-document.addEventListener("click", (event) => {
-  console.log(event);
-});
+// lists.forEach((list) => {
+//   list.addEventListener("click", () => {
+//     console.log(list.innerText);
+//   });
+// });
+
+// const events = ["click", "mouseover", "mouseout","mousemove"];
+
+// events.forEach((event) => {
+//   playground.addEventListener(event, () => {
+//     console.log("U ", event);
+//   });
+// });
+
+aa.addEventListener(
+  "click",
+  () => {
+    console.log("U click aa");
+  },
+  false
+);
+
+bb.addEventListener(
+  "click",
+  () => {
+    console.log("U click bb");
+  },
+  false
+);
+
+cc.addEventListener(
+  "click",
+  () => {
+    console.log("U click cc");
+  },
+  false
+);
+
+dd.addEventListener(
+  "click",
+  (event) => {
+    event.stopPropagation();
+    console.log("U click dd");
+  },
+  false
+);
+
+// const showClick = () => {
+//   console.log("U click");
+// };
+
+// greeting.addEventListener("click", showClick);
+
+// removeShowClick.addEventListener("click", () => {
+//   greeting.removeEventListener("click", showClick);
+// });
+
+// link.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   alert("hello Hello");
+//   console.log(event);
+//   console.log(this);
+//   console.log(link.innerHTML);
+// });
+
+// document.addEventListener("click", (event) => {
+//   console.log(event.target);
+// });
 
 // document.addEventListener("click", (event) => {
 //   console.log(event);
@@ -31,7 +103,7 @@ clickMeBtn.addEventListener("click", () => {
   console.log("U click");
 });
 
-console.dir(heading);
+// console.dir(heading);
 
 const handleClick = () => {
   console.log("U Click");

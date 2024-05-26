@@ -8,7 +8,9 @@
       body {
         height: 3000px;
       }
-      #heading {
+      #heading,
+      #greeting,
+      #playground {
         border: 3px solid black;
         padding: 10px;
         text-align: center;
@@ -17,6 +19,20 @@
         border: 3px solid black;
         padding: 10px;
       }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .list {
+        border: 1px solid black;
+        padding: 20px;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      .list:active {
+        background-color: gray;
+      }
     </style>
   </head>
   <body>
@@ -24,10 +40,10 @@
     <a href="https://mms-it.com" id="link">MMS IT</a>
     <!-- <img id="img" src="./eugene-golovesov-67P_KsKnehc-unsplash.jpg" alt="" /> -->
     <form action="" id="addForm">
-      <input id="textInput" type="file"  />
+      <input id="textInput" type="file" />
       <br />
       <br />
-      <input type="text"  />
+      <input type="text" />
       <br />
       <br />
       <select name="" id="nationSelect">
@@ -39,6 +55,34 @@
       </select>
       <button id="clickMeBtn">Click Me</button>
     </form>
+
+    <hr />
+
+    <h1 id="greeting">Min Ga Lar Par</h1>
+    <button id="removeShowClick">RemoveShowClick</button>
+
+    <hr />
+
+    <div id="aa" style="border: 3px solid red; padding: 40px">
+      <div id="bb" style="border: 3px solid red; padding: 40px">
+        <div id="cc" style="border: 3px solid red; padding: 40px">
+          <button id="dd">Click Me</button>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>My Fruit List</h1>
+    <ul id="listGroup">
+      <li class="list">Apple</li>
+      <li class="list">Orange</li>
+      <li class="list">Mango</li>
+    </ul>
+
+    <hr />
+
+    <h1 id="playground">Playground</h1>
 
     <script src="./js/app.js"></script>
   </body>
