@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
   }
 }
