@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cutive+Mono&display=swap");
+
+@import url("../node_modules/animate.css/animate.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .list input:checked {
+  width: 30px;
+  height: 30px;
+} */
+
+.slide-in-down {
+  animation-name: slide-in-down;
+  animation-duration: 500ms;
+}
+
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
