@@ -235,7 +235,11 @@ const taskInputHandler = (event) => {
   // console.clear();
   // console.log(event);
   if (event.key === "Enter") {
-    addList(taskInput.value);
+    if (taskInput.value.trim()) {
+      addList(taskInput.value);
+    } else {
+      alert("U must input task");
+    }
   }
 };
 
