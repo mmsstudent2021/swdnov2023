@@ -1,0 +1,18 @@
+@import url("./node_modules/animate.css/animate.min.css");
+@import url("./node_modules/sweetalert2/dist/sweetalert2.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swal2-confirm {
+  @apply bg-stone-900 text-stone-100 rounded-none !important;
+}
+
+.swal2-cancel {
+  @apply bg-stone-300 text-stone-800 rounded-none !important;
+}
+
+.swal2-popup {
+  @apply rounded-none;
+}

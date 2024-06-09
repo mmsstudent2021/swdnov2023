@@ -1,3 +1,6 @@
+import Swal from "sweetalert2";
+import { v4 as uuidv4 } from "uuid";
+
 export const tasks = ["apple", "orange", "mango"];
 
 export const updateTaskTotal = () => {
@@ -13,23 +16,37 @@ export const updateDoneTaskTotal = () => {
 export const createNewList = (currentTask) => {
   const list = listTemplate.content.cloneNode(true);
   //   console.log(list);
-  list.querySelector(".list").id = "list" + Date.now();
+  list.querySelector(".list").id = "list" + uuidv4();
   list.querySelector(".list-task").innerText = currentTask;
   return list;
 };
 
 export const deleteList = (listId) => {
-  //   console.log("U del");
+  // console.log("U del");
   const currentList = document.querySelector(`#${listId}`);
   // console.log(currentList);
-  if (window.confirm("Are you sure to delete ?")) {
-    currentList.classList.add("animate__animated", "animate__hinge");
-    currentList.addEventListener("animationend", () => {
-      currentList.remove();
-      // updateDoneTaskTotal();
-      // updateTaskTotal();
-    });
-  }
+  // if (window.confirm("Are you sure to delete ?")) {
+  //   currentList.classList.add("animate__animated", "animate__hinge");
+  //   currentList.addEventListener("animationend", () => {
+  //     currentList.remove();
+  //     // updateDoneTaskTotal();
+  //     // updateTaskTotal();
+  //   });
+  // }
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      currentList.classList.add("animate__animated", "animate__hinge");
+      currentList.addEventListener("animationend", () => {
+        currentList.remove();
+      });
+    }
+  });
 };
 
 export const editList = (listId) => {
