@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice App</title>
+  </head>
+  <body>
+    <main id="app" class="flex flex-col h-screen">
+      <header class="mb-5">
+        <div class="container">
+          <div class="py-4">
+            <h1 class="font-san font-bold text-3xl">MMS Solutions</h1>
+            <p class="text-blue-400">Invoice App for Shop</p>
+          </div>
+        </div>
+      </header>
+      <section class="">
+        <div class="container mb-5">
+          <form class="">
+            <div class="grid grid-cols-4 gap-3 bg-blue-50 rounded-lg p-5">
+              <div class="col-span-2">
+                <label
+                  for="countries"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Select an Product</label
+                >
+                <select
+                  id="countries"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option selected>Choose a product</option>
+                  <option value="US">Apple</option>
+                  <option value="CA">Orange</option>
+                  <option value="FR">Mango</option>
+                </select>
+              </div>
+              <div class="col-span-1">
+                <div>
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Your Quantity</label
+                  >
+                  <input
+                    type="number"
+                    id="quantity"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-span-1">
+                <button
+                  type="button"
+                  class="w-full h-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                >
+                  Add Record
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="container">
+          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table
+              class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+            >
+              <thead
+                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+              >
+                <tr>
+                  <th scope="col" class="px-6 py-3">Product name</th>
+                  <th scope="col" class="px-6 py-3 text-end">Price</th>
+                  <th scope="col" class="px-6 py-3 text-end">Quantity</th>
+                  <th scope="col" class="px-6 py-3 text-end">Cost</th>
+                  <th scope="col" class="px-6 py-3 text-end">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    colspan="5"
+                    class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    There is no record yet
+                  </th>
+                </tr>
+                <tr
+                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Apple
+                  </th>
+                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end">3</td>
+                  <td class="px-6 py-4 text-end">1500</td>
+                  <td class="px-6 py-4 text-end">
+                    <a
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+
+                <tr
+                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Apple
+                  </th>
+                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end">3</td>
+                  <td class="px-6 py-4 text-end">1500</td>
+                  <td class="px-6 py-4 text-end">
+                    <a
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+
+                <tr
+                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Apple
+                  </th>
+                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end">3</td>
+                  <td class="px-6 py-4 text-end">1500</td>
+                  <td class="px-6 py-4 text-end">
+                    <a
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+
+                <tr
+                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Apple
+                  </th>
+                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end">3</td>
+                  <td class="px-6 py-4 text-end">1500</td>
+                  <td class="px-6 py-4 text-end">
+                    <a
+                      href="#"
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="border-b dark:border-gray-700">
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="px-6 py-4 font-medium text-end text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Total
+                  </th>
+                  <td class="px-6 py-4 text-end">5500</td>
+                  <td class="px-6 py-4 text-end"></td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="px-6 py-4 font-medium text-end text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Tax
+                  </th>
+                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end"></td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="px-6 py-4 font-medium text-end text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Net Total
+                  </th>
+                  <td class="px-6 py-4 text-end">6000</td>
+                  <td class="px-6 py-4 text-end"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section
+        class="fixed right-0 w-[450px] h-screen bg-white duration-300 shadow"
+      >
+        <div class="p-4">
+          <div class="mb-5">
+            <h1 class="font-san font-bold text-3xl">Manage Inventory</h1>
+            <p class="text-blue-400">Available Items</p>
+          </div>
+          <div class="flex flex-col gap-3 mb-5">
+            <div class="border rounded-lg p-3 flex justify-between">
+              <h3>Apple</h3>
+              <p>500 mmk</p>
+            </div>
+
+            <div class="border rounded-lg p-3 flex justify-between">
+              <h3>Apple</h3>
+              <p>500 mmk</p>
+            </div>
+
+            <div class="border rounded-lg p-3 flex justify-between">
+              <h3>Apple</h3>
+              <p>500 mmk</p>
+            </div>
+          </div>
+
+          <div class="p-3 bg-blue-50 rounded-lg">
+            <div class="grid gap-3 grid-cols-3 grid-rows-2">
+              <div class="col-span-3">
+                <div>
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >New Product Name</label
+                  >
+                  <input
+                    type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-span-2">
+                <div>
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >New Product Price</label
+                  >
+                  <input
+                    type="number"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-span-1">
+                <button
+                  type="button"
+                  class="w-full h-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="mt-auto">
+        <div class="container py-3">
+          <div class="flex justify-end gap-3">
+            <button
+              type="button"
+              class="px-3 py-2 text-xs font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              Manage Inventory
+            </button>
+            <button
+              type="button"
+              class="px-3 py-2 text-xs font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Print
+            </button>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
