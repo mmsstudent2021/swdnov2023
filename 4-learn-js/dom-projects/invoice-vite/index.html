@@ -78,9 +78,9 @@
                   <th scope="col" class="px-6 py-3 text-end">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="recordGroup">
                 <tr
-                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                  class="hidden last:table-row odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                 >
                   <th
                     scope="row"
@@ -89,89 +89,6 @@
                   >
                     There is no record yet
                   </th>
-                </tr>
-                <tr
-                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-
-                <tr
-                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-
-                <tr
-                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-
-                <tr
-                  class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >Remove</a
-                    >
-                  </td>
                 </tr>
               </tbody>
               <tfoot>
@@ -183,7 +100,7 @@
                   >
                     Total
                   </th>
-                  <td class="px-6 py-4 text-end">5500</td>
+                  <td class="px-6 py-4 text-end" id="recordTotal">0</td>
                   <td class="px-6 py-4 text-end"></td>
                 </tr>
                 <tr class="border-b dark:border-gray-700">
@@ -194,7 +111,7 @@
                   >
                     Tax
                   </th>
-                  <td class="px-6 py-4 text-end">500</td>
+                  <td class="px-6 py-4 text-end" id="recordTax">0</td>
                   <td class="px-6 py-4 text-end"></td>
                 </tr>
                 <tr class="border-b dark:border-gray-700">
@@ -205,7 +122,7 @@
                   >
                     Net Total
                   </th>
-                  <td class="px-6 py-4 text-end">6000</td>
+                  <td class="px-6 py-4 text-end" id="recordNetTotal">0</td>
                   <td class="px-6 py-4 text-end"></td>
                 </tr>
               </tfoot>
@@ -315,6 +232,26 @@
           <h3 class="product-name">Apple</h3>
           <p><span class="product-price"></span> mmk</p>
         </div>
+      </template>
+      <template id="recordRowTemplate">
+        <tr class="record-row border-b dark:border-gray-700">
+          <th
+            scope="row"
+            class="record-product-name px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Apple
+          </th>
+          <td class="record-product-price px-6 py-4 text-end">500</td>
+          <td class="record-quantity px-6 py-4 text-end">3</td>
+          <td class="record-cost px-6 py-4 text-end">1500</td>
+          <td class="px-6 py-4 text-end">
+            <button
+              class="record-remove font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
       </template>
     </main>
     <script type="module" src="/main.js"></script>
