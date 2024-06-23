@@ -17,7 +17,7 @@
         </div>
       </header>
       <section class="">
-        <div class="container mb-5">
+        <div class="container mb-5 block print:hidden">
           <form id="createRecordForm">
             <div class="grid grid-cols-4 gap-3 bg-blue-50 rounded-lg p-5">
               <div class="col-span-2">
@@ -75,7 +75,12 @@
                   <th scope="col" class="px-6 py-3 text-end">Price</th>
                   <th scope="col" class="px-6 py-3 text-end">Quantity</th>
                   <th scope="col" class="px-6 py-3 text-end">Cost</th>
-                  <th scope="col" class="px-6 py-3 text-end">Action</th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-end table-cell print:hidden"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody id="recordGroup">
@@ -101,7 +106,7 @@
                     Total
                   </th>
                   <td class="px-6 py-4 text-end" id="recordTotal">0</td>
-                  <td class="px-6 py-4 text-end"></td>
+                  <td class="px-6 py-4 text-end table-cell print:hidden"></td>
                 </tr>
                 <tr class="border-b dark:border-gray-700">
                   <th
@@ -112,7 +117,7 @@
                     Tax
                   </th>
                   <td class="px-6 py-4 text-end" id="recordTax">0</td>
-                  <td class="px-6 py-4 text-end"></td>
+                  <td class="px-6 py-4 text-end table-cell print:hidden"></td>
                 </tr>
                 <tr class="border-b dark:border-gray-700">
                   <th
@@ -123,11 +128,15 @@
                     Net Total
                   </th>
                   <td class="px-6 py-4 text-end" id="recordNetTotal">0</td>
-                  <td class="px-6 py-4 text-end"></td>
+                  <td class="px-6 py-4 text-end table-cell print:hidden"></td>
                 </tr>
               </tfoot>
             </table>
+
+            
           </div>
+
+          <p class=" mt-5 hidden print:block">ဝယ်ယူအားပေးမူ့ကို ကျေးဇူးတင်ပါသည်။ MMS IT မိသားစု</p>
         </div>
       </section>
       <section
@@ -210,7 +219,7 @@
       </section>
       <footer class="mt-auto">
         <div class="container py-3">
-          <div class="flex justify-end gap-3">
+          <div class="flex print:hidden justify-end gap-3">
             <button
               id="manageInventoryBtn"
               type="button"
@@ -219,10 +228,10 @@
               Manage Inventory
             </button>
             <button
-              type="button"
+              id="checkout"
               class="px-3 py-2 text-xs font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
-              Print
+              checkout
             </button>
           </div>
         </div>
@@ -234,7 +243,7 @@
         </div>
       </template>
       <template id="recordRowTemplate">
-        <tr class="record-row border-b dark:border-gray-700">
+        <tr class="record-row border-b dark:border-gray-700 group">
           <th
             scope="row"
             class="record-product-name px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -242,9 +251,47 @@
             Apple
           </th>
           <td class="record-product-price px-6 py-4 text-end">500</td>
-          <td class="record-quantity px-6 py-4 text-end">3</td>
-          <td class="record-cost px-6 py-4 text-end">1500</td>
           <td class="px-6 py-4 text-end">
+            <button
+              class="quantity-sub hidden group-hover:inline-block border active:scale-90 border-blue-500 text-blue-500 p-0.5 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-3 pointer-events-none"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14"
+                />
+              </svg>
+            </button>
+            <span class="record-quantity w-5 inline-block">0</span>
+            <button
+              class="quantity-add active:scale-90 hidden group-hover:inline-block border p-0.5 border-blue-500 text-blue-500 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-3 pointer-events-none"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </button>
+          </td>
+          <td class="record-cost px-6 py-4 text-end">1500</td>
+          <td class="px-6 py-4 text-end table-cell print:hidden">
             <button
               class="record-remove font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >

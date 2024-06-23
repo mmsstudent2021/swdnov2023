@@ -6,6 +6,10 @@ export const manageInventoryBtnHandler = () => {
 };
 
 export const closeSidebarBtnHandler = () => {
-  console.log(productSidebar.classList.add("translate-x-full"));
+  productSidebar.classList.add("translate-x-full");
 };
 
+export const checkoutHandler = () => {
+  console.log("U checkout");
+  window.print();
+};
