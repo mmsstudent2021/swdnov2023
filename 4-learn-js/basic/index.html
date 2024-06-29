@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .cover {
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .rotating {
+        animation: rotating 3s linear infinite both;
+      }
+
+      @keyframes rotating {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1 class="my-title" name="my_title">Learn JavaScript</h1>
+    <h1 class="my-title" id="myTitle" name="my_title">Learn JavaScript</h1>
 
-    <script src="./arraytype.js"></script>
+    <img
+      width="200"
+      height="200"
+      class="cover"
+      src="./basic-in-out/images/poe-mamhe-thar-2.jpg"
+      alt=""
+    />
+
+    <input type="number" id="numInput" />
+
+    <button id="songPlay">Play</button>
+
+    <audio src="./to_the_bone.mp3" id="mySong" controls></audio>
+
+    <script src="./dom-classes-interface.js"></script>
   </body>
 </html>
