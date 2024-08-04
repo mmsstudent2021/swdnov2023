@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 
-const Faq = ({ faq: { id, question, answer } }) => {
-  const questions = [
-    {
-      id: 1,
-      question: "hello",
-      answer: "hello answer",
-    },
-  ];
-
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    console.log("open answer");
-    setOpen(true);
-  };
+const Faq = ({ faq: { id, question, answer, isOpen }, toggleQuestion }) => {
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => {
+  //   console.log("open answer");
+  //   setOpen(true);
+  // };
 
   const handleToggle = () => {
-    setOpen(!open);
+    // setOpen(!open);
+    toggleQuestion(id);
   };
   return (
     <div className="">
@@ -24,7 +17,7 @@ const Faq = ({ faq: { id, question, answer } }) => {
         onClick={handleToggle}
         className="flex justify-between items-center select-none active:scale-90 duration-200 border border-black p-5"
       >
-        <h1 className={` text-xl ${open === false ? "" : " font-bold"}`}>
+        <h1 className={` text-xl ${isOpen === false ? "" : " font-bold"}`}>
           {question}
         </h1>
         <svg
@@ -34,7 +27,7 @@ const Faq = ({ faq: { id, question, answer } }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           className={`size-6 duration-300 ${
-            open === false ? "" : "rotate-180"
+            isOpen === false ? "" : "rotate-180"
           } `}
         >
           <path
@@ -44,7 +37,7 @@ const Faq = ({ faq: { id, question, answer } }) => {
           />
         </svg>
       </div>
-      <p className={` bg-gray-200 p-5 ${open === false ? "hidden" : ""}`}>
+      <p className={` bg-gray-200 p-5 ${isOpen === false ? "hidden" : ""}`}>
         {answer}
       </p>
     </div>

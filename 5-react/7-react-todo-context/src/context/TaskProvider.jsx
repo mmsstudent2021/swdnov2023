@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import Heading from "./components/Heading";
-import CreateTask from "./components/CreateTask";
-import TaskList from "./components/TaskList";
+import TaskContext from "./TaskContext";
 
-const App = () => {
-  // app state
+const TaskProvider = ({ children }) => {
   const [tasks, setTask] = useState([
     { id: 1, task: "Complete JavaScript assignment", isDone: false },
     { id: 2, task: "Prepare for meeting with client", isDone: false },
@@ -26,14 +23,11 @@ const App = () => {
       tasks.map((el) => (el.id === id ? { ...el, isDone: !el.isDone } : el))
     );
   };
-
   return (
-    <div className=" p-10">
-      <Heading />
-      <CreateTask addTask={addTask} />
-      <TaskList doneTask={doneTask} removeTask={removeTask} tasks={tasks} />
-    </div>
+    <TaskContext.Provider value={{ tasks, addTask, removeTask, doneTask }}>
+      {children}
+    </TaskContext.Provider>
   );
 };
 
-export default App;
+export default TaskProvider;
