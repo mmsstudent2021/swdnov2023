@@ -6,11 +6,13 @@ import BreadCrumb from "../components/BreadCrumb";
 import useProductStore from "../store/useProductStore";
 
 const ProductDetail = () => {
-  const { productId } = useParams();
+  const { productSlug } = useParams();
 
   const { products } = useProductStore();
 
-  const currentProduct = products.find((product) => product.id == productId);
+  const currentProduct = products.find(
+    (product) => product.slug == productSlug
+  );
 
   //   console.log(currentProduct);
   //   console.log(productId);
@@ -23,7 +25,7 @@ const ProductDetail = () => {
           <div className=" col-span-1">
             <img
               src={currentProduct.image}
-              className=" h-[200px] md:w-3/4 block mb-5 md:mb-0  md:mx-auto"
+              className=" h-[200px] md:h-auto md:w-3/4 block mb-5 md:mb-0  md:mx-auto"
               alt=""
             />
           </div>
