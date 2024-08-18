@@ -1,0 +1,170 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Define project requirements",
+      "description": "Gather all necessary requirements for the website, including features, target audience, and design preferences.",
+      "status": "completed",
+      "priority": "high",
+      "dueDate": "2024-08-20",
+      "createdAt": "2024-08-01",
+      "updatedAt": "2024-08-18",
+      "assignedTo": "Project Manager",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Conduct stakeholder interviews",
+          "status": "completed",
+          "dueDate": "2024-08-10"
+        },
+        {
+          "id": 2,
+          "title": "Create requirements document",
+          "status": "completed",
+          "dueDate": "2024-08-15"
+        }
+      ],
+      "tags": ["Planning", "Requirements"]
+    },
+    {
+      "id": 2,
+      "title": "Design website layout",
+      "description": "Create wireframes and design mockups for the website.",
+      "status": "in-progress",
+      "priority": "high",
+      "dueDate": "2024-08-30",
+      "createdAt": "2024-08-05",
+      "updatedAt": "2024-08-18",
+      "assignedTo": "UI/UX Designer",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Design homepage wireframe",
+          "status": "completed",
+          "dueDate": "2024-08-12"
+        },
+        {
+          "id": 2,
+          "title": "Design about page wireframe",
+          "status": "in-progress",
+          "dueDate": "2024-08-18"
+        },
+        {
+          "id": 3,
+          "title": "Create design mockups in Figma",
+          "status": "not-started",
+          "dueDate": "2024-08-25"
+        }
+      ],
+      "tags": ["Design", "UI/UX"]
+    },
+    {
+      "id": 3,
+      "title": "Develop website frontend",
+      "description": "Implement the website's frontend using HTML, CSS, and JavaScript.",
+      "status": "not-started",
+      "priority": "high",
+      "dueDate": "2024-09-15",
+      "createdAt": "2024-08-18",
+      "updatedAt": "2024-08-18",
+      "assignedTo": "Frontend Developer",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set up project structure",
+          "status": "not-started",
+          "dueDate": "2024-08-20"
+        },
+        {
+          "id": 2,
+          "title": "Implement responsive navigation bar",
+          "status": "not-started",
+          "dueDate": "2024-08-25"
+        },
+        {
+          "id": 3,
+          "title": "Develop homepage layout",
+          "status": "not-started",
+          "dueDate": "2024-08-30"
+        },
+        {
+          "id": 4,
+          "title": "Integrate CSS framework (e.g., Tailwind CSS)",
+          "status": "not-started",
+          "dueDate": "2024-09-05"
+        }
+      ],
+      "tags": ["Development", "Frontend"]
+    },
+    {
+      "id": 4,
+      "title": "Set up backend",
+      "description": "Develop the backend of the website using the chosen technology stack.",
+      "status": "not-started",
+      "priority": "medium",
+      "dueDate": "2024-09-30",
+      "createdAt": "2024-08-18",
+      "updatedAt": "2024-08-18",
+      "assignedTo": "Backend Developer",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Set up database",
+          "status": "not-started",
+          "dueDate": "2024-09-10"
+        },
+        {
+          "id": 2,
+          "title": "Implement API endpoints",
+          "status": "not-started",
+          "dueDate": "2024-09-20"
+        },
+        {
+          "id": 3,
+          "title": "Set up authentication system",
+          "status": "not-started",
+          "dueDate": "2024-09-25"
+        }
+      ],
+      "tags": ["Development", "Backend"]
+    },
+    {
+      "id": 5,
+      "title": "Test and deploy website",
+      "description": "Perform testing and deploy the website to the production environment.",
+      "status": "not-started",
+      "priority": "high",
+      "dueDate": "2024-10-10",
+      "createdAt": "2024-08-18",
+      "updatedAt": "2024-08-18",
+      "assignedTo": "QA Engineer",
+      "subtasks": [
+        {
+          "id": 1,
+          "title": "Conduct unit testing",
+          "status": "not-started",
+          "dueDate": "2024-09-20"
+        },
+        {
+          "id": 2,
+          "title": "Perform integration testing",
+          "status": "not-started",
+          "dueDate": "2024-09-25"
+        },
+        {
+          "id": 3,
+          "title": "Deploy website to production",
+          "status": "not-started",
+          "dueDate": "2024-10-01"
+        },
+        {
+          "id": 4,
+          "title": "Perform final user acceptance testing (UAT)",
+          "status": "not-started",
+          "dueDate": "2024-10-05"
+        }
+      ],
+      "tags": ["Testing", "Deployment"]
+    }
+  ]
+}
