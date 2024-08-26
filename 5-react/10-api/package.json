@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "json-server data/task.json -p 5000 -d 2000"
   },
   "devDependencies": {
     "vite": "^4.3.9"
