@@ -10,7 +10,6 @@ const App = () => {
   const [taskLoading, setTaskLoading] = useState(false);
   const [sending, setSending] = useState(false);
 
-
   const addTask = async (newTask) => {
     setSending(true);
     const res = await fetch("http://localhost:5000/tasks", {
@@ -22,7 +21,9 @@ const App = () => {
     });
     const data = await res.json();
     console.log(data);
-    setTask([...tasks, data]);
+
+    // revalidation
+    fetchTask();
     setSending(false);
   };
 
@@ -51,7 +52,8 @@ const App = () => {
 
     console.log(data);
 
-    setTask(tasks.map((el) => (el.id === id ? data : el)));
+    // setTask(tasks.map((el) => (el.id === id ? data : el)));
+    fetchTask();
   };
 
   const fetchTask = async () => {
@@ -80,4 +82,3 @@ const App = () => {
 };
 
 export default App;
-

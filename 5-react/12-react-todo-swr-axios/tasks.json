@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "task": "Complete JavaScript assignment",
+      "isDone": true
+    },
+    {
+      "task": "ok par",
+      "isDone": false,
+      "id": 3
+    },
+    {
+      "task": "haha",
+      "isDone": false,
+      "id": 4
+    }
+  ]
+}

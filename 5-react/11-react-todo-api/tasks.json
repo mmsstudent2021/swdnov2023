@@ -8,12 +8,8 @@
     {
       "id": 3,
       "task": "Update project documentation",
-      "isDone": true
-    },
-    {
-      "task": "new task",
-      "isDone": false,
-      "id": 4
+      "isDone": false
     }
+   
   ]
 }
