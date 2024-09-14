@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 6,
+      "product_name": "Website Maintenance Plan",
+      "price": 200,
+      "created_at": "2024-09-09T08:50:25Z"
+    },
+    {
+      "product_name": "Web Hosting and Deployment Par",
+      "price": "2500",
+      "created_at": "2024-09-14T16:44:58.766Z",
+      "id": 8
+    },
+    {
+      "product_name": "Apple",
+      "price": "200",
+      "created_at": "2024-09-14T16:30:36.418Z",
+      "id": 9
+    },
+    {
+      "product_name": "Orange",
+      "price": "1700",
+      "created_at": "2024-09-14T16:30:44.569Z",
+      "id": 10
+    }
+  ]
+}

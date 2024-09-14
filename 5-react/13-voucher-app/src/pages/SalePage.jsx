@@ -1,10 +1,13 @@
 import React from "react";
 import Breadcrumb from "../components/BreadCrumb";
+import Container from "../components/Container";
 
 const SalePage = () => {
   return (
     <section>
-      <Breadcrumb currentPageTitle={"Sale Module"} />
+      <Container>
+        <Breadcrumb currentPageTitle={"Sale Module"}  />
+      </Container>
     </section>
   );
 };

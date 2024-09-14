@@ -1,12 +1,15 @@
 import React from "react";
 import Breadcrumb from "../components/BreadCrumb";
 import VoucherList from "../components/VoucherList";
+import Container from "../components/Container";
 
 const VoucherPage = () => {
   return (
     <section>
-      <Breadcrumb currentPageTitle={"Voucher Module"} />
-      <VoucherList />
+      <Container>
+        <Breadcrumb currentPageTitle={"Voucher Module"} />
+        <VoucherList />
+      </Container>
     </section>
   );
 };

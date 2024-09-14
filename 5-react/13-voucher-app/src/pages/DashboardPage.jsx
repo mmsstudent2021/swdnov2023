@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../components/Container";
+import Container from "../components/Container";
 import ModuleBtn from "../components/ModuleBtn";
 import {
   HiCircleStack,
