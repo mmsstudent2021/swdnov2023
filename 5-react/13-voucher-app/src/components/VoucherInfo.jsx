@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import SaleForm from "./SaleForm";
 import VoucherTable from "./VoucherTable";
 import useRecordStore from "../stores/useRecordStore";
+import { useNavigate } from "react-router-dom";
 
 tailspin.register();
 
@@ -16,6 +17,8 @@ const VoucherInfo = () => {
     formState: { errors },
     reset,
   } = useForm();
+
+  const navigate = useNavigate();
 
   const [isSending, setIsSending] = useState(false);
 
@@ -30,13 +33,19 @@ const VoucherInfo = () => {
 
     const currentVoucher = { ...data, records, total, tax, netTotal };
 
-    await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
+    console.log(data);
+
+    const res =await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
       method: "POST",
       body: JSON.stringify(currentVoucher),
       headers: {
         "Content-Type": "application/json",
       },
     });
+
+    const json = await res.json();
+
+    console.log(json);
 
     toast.success("Voucher created successfully");
 
@@ -45,6 +54,10 @@ const VoucherInfo = () => {
     reset();
 
     setIsSending(false);
+
+    if(data.redirect_to_detail){
+      navigate(`/voucher/detail/${json.id}`);
+    }
   };
 
   // Utility function to generate a unique invoice number
@@ -185,8 +198,31 @@ const VoucherInfo = () => {
 
       <VoucherTable />
 
-      <div className=" flex justify-end items-center gap-3">
+      <div className=" flex flex-col justify-end items-end gap-3">
         <div className="flex items-center">
+          <label
+            htmlFor="redirect_to_detail"
+            className="me-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Redirect to Voucher Detail
+          </label>
+          <input
+            {...register("redirect_to_detail")}
+            required
+            form="infoForm"
+            id="redirect_to_detail"
+            type="checkbox"
+            value=""
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+        </div>
+        <div className="flex items-center">
+          <label
+            htmlFor="all-correct"
+            className="me-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Make sure all field are correct
+          </label>
           <input
             {...register("all_correct")}
             required
@@ -196,18 +232,12 @@ const VoucherInfo = () => {
             value=""
             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
-          <label
-            htmlFor="all-correct"
-            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Make sure all field are correct
-          </label>
         </div>
 
         <button
           type="submit"
           form="infoForm"
-          className="text-white bg-blue-700 inline-flex gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 inline-flex gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           <span>Confirm Voucher</span>
           {isSending && (
