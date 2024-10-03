@@ -91,19 +91,19 @@ const VoucherCard = () => {
               <td className="py-2 text-right text-sm" colSpan={4}>
                 Total
               </td>
-              <td className="py-2 text-right text-sm">{data.total}</td>
+              <td className="py-2 text-right text-sm">{data.total.toFixed(2)}</td>
             </tr>
             <tr className="border-b border-gray-200">
               <td className="py-2 text-right text-sm" colSpan={4}>
                 Tax
               </td>
-              <td className="py-2 text-right text-sm">{data.tax}</td>
+              <td className="py-2 text-right text-sm">{data.tax.toFixed(2)}</td>
             </tr>
             <tr className="border-b border-gray-200">
               <td className="py-2 text-right text-sm" colSpan={4}>
                 Net Total
               </td>
-              <td className="py-2 text-right text-sm">{data.netTotal}</td>
+              <td className="py-2 text-right text-sm">{data.netTotal.toFixed(2)}</td>
             </tr>
           </tfoot>
         </table>

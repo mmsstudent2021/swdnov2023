@@ -3,7 +3,7 @@
     {
       "id": 1,
       "product_name": "Performance Optimization Service",
-      "price": 100,
+      "price": 200,
       "created_at": "2024-09-14T12:30:45Z"
     },
     {
@@ -51,7 +51,7 @@
     {
       "id": 9,
       "product_name": "Custom Web Application Development",
-      "price": 2000,
+      "price": 200,
       "created_at": "2024-09-06T09:45:00Z"
     },
     {
@@ -298,6 +298,68 @@
       "tax": 84.00000000000001,
       "netTotal": 1284,
       "id": 6
+    },
+    {
+      "voucher_id": "INV-20241003-8348",
+      "customer_name": "kyaw kayw",
+      "customer_email": "kyaw@gmail.com",
+      "sale_date": "2024-10-05",
+      "redirect_to_detail": true,
+      "all_correct": true,
+      "records": [
+        {
+          "id": 1727963625495,
+          "product": {
+            "id": 1,
+            "product_name": "Performance Optimization Service",
+            "price": 100,
+            "created_at": "2024-09-14T12:30:45Z"
+          },
+          "quantity": "3",
+          "cost": 300,
+          "created_at": "2024-10-03T13:53:45.495Z"
+        },
+        {
+          "id": 1727963627921,
+          "product": {
+            "id": 3,
+            "product_name": "SEO Optimization Service",
+            "price": 300,
+            "created_at": "2024-09-12T14:15:30Z"
+          },
+          "quantity": "3",
+          "cost": 900,
+          "created_at": "2024-10-03T13:53:47.921Z"
+        },
+        {
+          "id": 1727963630488,
+          "product": {
+            "id": 6,
+            "product_name": "Website Maintenance Plan",
+            "price": 200,
+            "created_at": "2024-09-09T08:50:25Z"
+          },
+          "quantity": "4",
+          "cost": 800,
+          "created_at": "2024-10-03T13:53:50.488Z"
+        },
+        {
+          "id": 1727963633696,
+          "product": {
+            "id": 9,
+            "product_name": "Custom Web Application Development",
+            "price": 2000,
+            "created_at": "2024-09-06T09:45:00Z"
+          },
+          "quantity": "2",
+          "cost": 4000,
+          "created_at": "2024-10-03T13:53:53.696Z"
+        }
+      ],
+      "total": 6000,
+      "tax": 420.00000000000006,
+      "netTotal": 6420,
+      "id": 7
     }
   ]
 }
