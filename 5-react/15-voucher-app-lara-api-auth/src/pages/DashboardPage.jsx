@@ -16,21 +16,21 @@ const DashboardPage = () => {
             <ModuleBtn
               name={"Product Module"}
               icon={<HiCircleStack className=" size-14" />}
-              url={"/product"}
+              url={"/dashboard/product"}
             />
           </div>
           <div className=" col-span-1 row-span-1">
             <ModuleBtn
               name={"Sale Module"}
               icon={<HiComputerDesktop className=" size-14" />}
-              url={"/sale"}
+              url={"/dashboard/sale"}
             />
           </div>
           <div className=" col-span-1 row-span-1">
             <ModuleBtn
               name={"Voucher Module"}
               icon={<HiDocumentDuplicate className=" size-14" />}
-              url={"/voucher"}
+              url={"/dashboard/voucher"}
             />
           </div>
         </div>

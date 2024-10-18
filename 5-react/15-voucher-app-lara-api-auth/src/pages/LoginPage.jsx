@@ -4,10 +4,13 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
-
   const navigate = useNavigate();
 
-  const { register, handleSubmit, formState: { errors }} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const handleLogin = async (data) => {
     console.log(data);
@@ -23,17 +26,19 @@ function LoginPage() {
 
     const json = await res.json();
 
-    if(res.status === 200){
-      toast.success("Login Successfully");  
-      // console.log(json)
-      navigate("/dashboard")
+    if (res.status === 200) {
+      toast.success("Login Successfully");
+      console.log(json);
+
+      
+
+      navigate("/dashboard");
     } else {
       toast.error(json.message);
     }
-    
-    // navigate("/");
-  };  
 
+    // navigate("/");
+  };
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -55,7 +60,10 @@ function LoginPage() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
             </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(handleLogin)} >
+            <form
+              className="space-y-4 md:space-y-6"
+              onSubmit={handleSubmit(handleLogin)}
+            >
               <div>
                 <label
                   htmlFor="email"
