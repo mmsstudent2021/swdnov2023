@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -14,14 +13,13 @@ const ProductEditForm = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
   } = useForm();
 
   const { mutate } = useSWRConfig();
 
   const { id } = useParams();
 
-  const { data, isLoading, error } = useSWR(
+  const { data, isLoading } = useSWR(
     import.meta.env.VITE_API_URL + `/products/${id}`,
     fetchProducts
   );

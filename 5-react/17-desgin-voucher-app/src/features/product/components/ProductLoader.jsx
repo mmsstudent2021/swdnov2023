@@ -1,8 +1,7 @@
-import React from "react";
 import { useSearchParams } from "react-router-dom";
 
 const ProductLoader = () => {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const currentLimit = params.get("limit") ?? 5;
   const numbers = [...Array(Number(currentLimit))];
 

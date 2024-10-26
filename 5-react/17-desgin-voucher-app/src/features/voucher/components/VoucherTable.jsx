@@ -148,13 +148,11 @@ const VoucherTable = () => {
           </tbody>
         </table>
       </div>
-      {!isLoading && (
-        <Pagination
-          links={data?.links}
-          meta={data?.meta}
-          updateFetchUrl={updateFetchUrl}
-        />
-      )}
+      <Pagination
+        links={data?.links}
+        meta={data?.meta}
+        updateFetchUrl={updateFetchUrl}
+      />
     </div>
   );
 };
