@@ -1,5 +1,15 @@
 import React, { useRef, useState } from "react";
-import { HiSearch, HiX } from "react-icons/hi";
+import {
+  HiArrowDown,
+  HiArrowNarrowDown,
+  HiArrowNarrowUp,
+  HiChevronDown,
+  HiChevronUp,
+  HiSearch,
+  HiSortAscending,
+  HiSortDescending,
+  HiX,
+} from "react-icons/hi";
 import {
   HiComputerDesktop,
   HiMiniTrash,
@@ -8,18 +18,23 @@ import {
   HiPlus,
   HiTrash,
 } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import VoucherListRow from "./VoucherListRow";
 import useSWR from "swr";
-import { debounce, throttle } from "lodash";
+import { debounce, set, sortBy, throttle } from "lodash";
 import Pagination from "./Pagination";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const VoucherList = () => {
+  const location = useLocation();
+  const [params, setParams] = useSearchParams();
+
+  // console.log(location)
+
   // const [search, setSearch] = useState("");
   const [fetchUrl, setFetchUrl] = useState(
-    import.meta.env.VITE_API_URL + "/vouchers"
+    import.meta.env.VITE_API_URL + "/vouchers" + location.search
   );
 
   const searchInput = useRef("");
@@ -36,8 +51,15 @@ const VoucherList = () => {
   // };
 
   const handleSearch = debounce((e) => {
-    console.log(e.target.value);
-    setFetchUrl(`${import.meta.env.VITE_API_URL}/vouchers?q=${e.target.value}`);
+    if (e.target.value) {
+      setParams({ q: e.target.value });
+      setFetchUrl(
+        `${import.meta.env.VITE_API_URL}/vouchers?q=${e.target.value}`
+      );
+    } else {
+      setParams({});
+      setFetchUrl(`${import.meta.env.VITE_API_URL}/vouchers`);
+    }
     // setSearch(e.target.value);
   }, 500);
 
@@ -47,12 +69,48 @@ const VoucherList = () => {
   };
 
   const updateFetchUrl = (url) => {
+    console.log(url);
+    const currentUrl = new URL(url);
+    const newSearchParams = new URLSearchParams(currentUrl.search);
+
+    // console.log(newSearchParams)
+
+    // console.log(currentUrl);
+    // console.log(currentUrl.search);
+
+    // console.log(params)
+    // console.log(params.get("a"))
+    // console.log(params.get("b"))
+
+    // const currentParams = params.entries();
+
+    // for(let x of currentParams){
+    //   console.log(x)
+    // }
+
+    // console.log(currentParams.next())
+    // console.log(currentParams.next())
+
+    const paramObject = Object.fromEntries(newSearchParams);
+
+    // console.log(paramObject)
+
+    // console.log(url)
+
+    setParams(paramObject);
+
     setFetchUrl(url);
   };
 
   // if (isLoading) return <p>Loading...</p>;
-
   // console.log(data);
+
+  const handleSort = (sortData) => {
+    console.log(sortData);
+    const sortParams = new URLSearchParams(sortData).toString();
+    setParams(sortData);
+    setFetchUrl(`${import.meta.env.VITE_API_URL}/vouchers?${sortParams}`);
+  };
 
   return (
     <div>
@@ -96,15 +154,61 @@ const VoucherList = () => {
         <table className="w-full text-sm text-left rtl:text-right text-stone-500 dark:text-stone-400">
           <thead className="text-xs text-stone-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-stone-400">
             <tr>
-              <th scope="col" className="px-6 py-3">
-                # Voucher ID
+              <th scope="col" className="px-6 py-3 ">
+                <div className="flex items-center gap-1">
+                  <span className=" flex flex-col">
+                    <button
+                      className=" hover:bg-stone-300"
+                      onClick={handleSort.bind(null, {
+                        sort_by: "id",
+                        sort_direction: "asc",
+                      })}
+                    >
+                      <HiChevronUp />
+                    </button>
+                    <button
+                      className=" hover:bg-stone-300"
+                      onClick={handleSort.bind(null, {
+                        sort_by: "id",
+                        sort_direction: "desc",
+                      })}
+                    >
+                      <HiChevronDown />
+                    </button>
+                  </span>
+                  <span>#</span>
+                </div>
               </th>
               <th scope="col" className="px-6 py-3">
-                Customer name
+                Voucher ID
               </th>
-
+              <th scope="col" className="px-6 py-3">
+                Customer
+              </th>
               <th scope="col" className="px-6 py-3 text-end">
-                Email
+                <div className="flex items-center gap-1">
+                  <span className=" flex flex-col">
+                    <button
+                      className=" hover:bg-stone-300"
+                      onClick={handleSort.bind(null, {
+                        sort_by: "total",
+                        sort_direction: "asc",
+                      })}
+                    >
+                      <HiChevronUp />
+                    </button>
+                    <button
+                      className=" hover:bg-stone-300"
+                      onClick={handleSort.bind(null, {
+                        sort_by: "total",
+                        sort_direction: "desc",
+                      })}
+                    >
+                      <HiChevronDown />
+                    </button>
+                  </span>
+                  <span>Total</span>
+                </div>
               </th>
               <th scope="col" className="px-6 py-3 text-end">
                 Created At

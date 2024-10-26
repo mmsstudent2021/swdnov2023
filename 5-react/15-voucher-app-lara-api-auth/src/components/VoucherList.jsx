@@ -13,8 +13,11 @@ import VoucherListRow from "./VoucherListRow";
 import useSWR from "swr";
 import { debounce, throttle } from "lodash";
 import Pagination from "./Pagination";
+import useCookie from "react-use-cookie";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+// const fetcher = (url) => fetch(url,{
+//   headers
+// }).then((res) => res.json());
 
 const VoucherList = () => {
   // const [search, setSearch] = useState("");
@@ -22,9 +25,18 @@ const VoucherList = () => {
     import.meta.env.VITE_API_URL + "/vouchers"
   );
 
+  const [token] = useCookie("my_token");
+
   const searchInput = useRef("");
   // console.log(searchInput);
   // console.log(search);
+
+  const fetcher = (url) =>
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
 
   const { data, isLoading, error } = useSWR(fetchUrl, fetcher);
 
@@ -50,9 +62,9 @@ const VoucherList = () => {
     setFetchUrl(url);
   };
 
-  // if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
 
-  // console.log(data);
+  console.log(data);
 
   return (
     <div>

@@ -59,7 +59,7 @@ const VoucherInfo = () => {
       setIsSending(false);
 
       if (data.redirect_to_detail) {
-        navigate(`/voucher/detail/${json.id}`);
+        navigate(`/voucher/detail/${json.voucher.id}`);
       }
     } else {
       toast.error(json.message);
