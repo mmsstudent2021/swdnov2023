@@ -1,0 +1,201 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Performance Optimization Service",
+      "price": 100,
+      "created_at": "2024-09-14T12:30:45Z"
+    },
+    {
+      "id": 2,
+      "product_name": "Custom Website Design",
+      "price": 1200,
+      "created_at": "2024-09-13T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "product_name": "SEO Optimization Service",
+      "price": 300,
+      "created_at": "2024-09-12T14:15:30Z"
+    },
+    {
+      "id": 4,
+      "product_name": "Responsive Website Development",
+      "price": 800,
+      "created_at": "2024-09-11T10:45:00Z"
+    },
+    {
+      "id": 5,
+      "product_name": "E-commerce Setup Service",
+      "price": 1500,
+      "created_at": "2024-09-10T16:20:15Z"
+    },
+    {
+      "id": 6,
+      "product_name": "Website Maintenance Plan",
+      "price": 200,
+      "created_at": "2024-09-09T08:50:25Z"
+    },
+    {
+      "id": 7,
+      "product_name": "CMS Integration Service",
+      "price": 500,
+      "created_at": "2024-09-08T11:30:00Z"
+    },
+    {
+      "id": 8,
+      "product_name": "Web Hosting and Deployment",
+      "price": 250,
+      "created_at": "2024-09-07T18:00:00Z"
+    },
+    {
+      "id": 9,
+      "product_name": "Custom Web Application Development",
+      "price": 2000,
+      "created_at": "2024-09-06T09:45:00Z"
+    },
+    {
+      "id": 10,
+      "product_name": "UI/UX Design Consulting",
+      "price": 700,
+      "created_at": "2024-09-05T15:00:00Z"
+    }
+  ],
+  "vouchers": [
+    {
+      "voucher_id": "INV-20240921-7570",
+      "customer_name": "kyaw kayw",
+      "customer_email": "kyaw@gmail.com",
+      "sale_date": "2024-09-21",
+      "all_correct": true,
+      "records": [
+        {
+          "id": 1726934630853,
+          "product": {
+            "id": 4,
+            "product_name": "Responsive Website Development",
+            "price": 800,
+            "created_at": "2024-09-11T10:45:00Z"
+          },
+          "quantity": 6,
+          "cost": 4800,
+          "created_at": "2024-09-21T16:03:50.853Z"
+        },
+        {
+          "id": 1726934633058,
+          "product": {
+            "id": 3,
+            "product_name": "SEO Optimization Service",
+            "price": 300,
+            "created_at": "2024-09-12T14:15:30Z"
+          },
+          "quantity": "2",
+          "cost": 600,
+          "created_at": "2024-09-21T16:03:53.058Z"
+        },
+        {
+          "id": 1726934638606,
+          "product": {
+            "id": 5,
+            "product_name": "E-commerce Setup Service",
+            "price": 1500,
+            "created_at": "2024-09-10T16:20:15Z"
+          },
+          "quantity": "4",
+          "cost": 6000,
+          "created_at": "2024-09-21T16:03:58.606Z"
+        }
+      ],
+      "total": 11400,
+      "tax": 798.0000000000001,
+      "netTotal": 12198,
+      "id": 1
+    },
+    {
+      "voucher_id": "INV-20240921-3166",
+      "customer_name": "Su Su",
+      "customer_email": "su@gmail.com",
+      "sale_date": "2024-09-21",
+      "all_correct": true,
+      "records": [
+        {
+          "id": 1726934718652,
+          "product": {
+            "id": 3,
+            "product_name": "SEO Optimization Service",
+            "price": 300,
+            "created_at": "2024-09-12T14:15:30Z"
+          },
+          "quantity": "3",
+          "cost": 900,
+          "created_at": "2024-09-21T16:05:18.652Z"
+        },
+        {
+          "id": 1726934720927,
+          "product": {
+            "id": 5,
+            "product_name": "E-commerce Setup Service",
+            "price": 1500,
+            "created_at": "2024-09-10T16:20:15Z"
+          },
+          "quantity": "5",
+          "cost": 7500,
+          "created_at": "2024-09-21T16:05:20.927Z"
+        },
+        {
+          "id": 1726934723537,
+          "product": {
+            "id": 7,
+            "product_name": "CMS Integration Service",
+            "price": 500,
+            "created_at": "2024-09-08T11:30:00Z"
+          },
+          "quantity": "2",
+          "cost": 1000,
+          "created_at": "2024-09-21T16:05:23.537Z"
+        }
+      ],
+      "total": 9400,
+      "tax": 658.0000000000001,
+      "netTotal": 10058,
+      "id": 2
+    },
+    {
+      "voucher_id": "INV-20240921-3425",
+      "customer_name": "zaw zaw",
+      "customer_email": "zaw@gmail.com",
+      "sale_date": "2024-09-21",
+      "all_correct": true,
+      "records": [
+        {
+          "id": 1726934923374,
+          "product": {
+            "id": 2,
+            "product_name": "Custom Website Design",
+            "price": 1200,
+            "created_at": "2024-09-13T09:00:00Z"
+          },
+          "quantity": "2",
+          "cost": 2400,
+          "created_at": "2024-09-21T16:08:43.374Z"
+        },
+        {
+          "id": 1726934927097,
+          "product": {
+            "id": 10,
+            "product_name": "UI/UX Design Consulting",
+            "price": 700,
+            "created_at": "2024-09-05T15:00:00Z"
+          },
+          "quantity": "1",
+          "cost": 700,
+          "created_at": "2024-09-21T16:08:47.097Z"
+        }
+      ],
+      "total": 3100,
+      "tax": 217.00000000000003,
+      "netTotal": 3317,
+      "id": 3
+    }
+  ]
+}
