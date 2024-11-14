@@ -13,7 +13,7 @@ const ProductEditForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm();
 
@@ -26,13 +26,10 @@ const ProductEditForm = () => {
     fetchProducts
   );
 
-  const [isSending, setIsSending] = useState(false);
-
   const navigate = useNavigate();
 
   const handleUpdateProduct = async (data) => {
     try {
-      setIsSending(true);
       await updateProduct(id, data.product_name, data.price);
       mutate(import.meta.env.VITE_API_URL + `/products/${id}`);
       toast.success("Product update successfully");
@@ -40,7 +37,6 @@ const ProductEditForm = () => {
       toast.error("An error occurred while updating the product.");
       console.error("Error:", error);
     } finally {
-      setIsSending(false);
       if (data.back_to_product_list) {
         navigate("/dashboard/products");
       }
@@ -238,7 +234,7 @@ const ProductEditForm = () => {
             className="text-white bg-blue-700 inline-flex gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             <span>Update Product</span>
-            {isSending && (
+            {isSubmitting && (
               <l-tailspin
                 size="20"
                 stroke="5"
