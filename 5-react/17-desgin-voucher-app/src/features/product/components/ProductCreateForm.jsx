@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { tailspin } from "ldrs";
 import toast from "react-hot-toast";
 import { storeProduct } from "../../../services/product";
+import ButtonSpinner from "../../../components/ButtonSpinner";
 
 tailspin.register();
 
@@ -14,19 +15,15 @@ const ProductCreateForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isSubmitting, errors },
     reset,
   } = useForm();
-
-  const [isSending, setIsSending] = useState(false);
 
   const navigate = useNavigate();
 
   const handleCreateProduct = async (data) => {
     console.log(data);
     try {
-      setIsSending(true);
-
       const res = await storeProduct(data.product_name, data.price);
       const json = await res.json();
 
@@ -45,8 +42,6 @@ const ProductCreateForm = () => {
     } catch (error) {
       toast.error("An error occurred while creating the product.");
       console.error("Error:", error);
-    } finally {
-      setIsSending(false);
     }
   };
 
@@ -179,17 +174,11 @@ const ProductCreateForm = () => {
 
         <button
           type="submit"
-          className="text-white bg-blue-700 inline-flex gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          disabled={isSubmitting}
+          className="text-white bg-blue-700 disabled:pointer-events-none disabled:opacity-80 inline-flex items-center justify-center gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           <span>Save Product</span>
-          {isSending && (
-            <l-tailspin
-              size="20"
-              stroke="5"
-              speed="0.9"
-              color="white"
-            ></l-tailspin>
-          )}
+          {isSubmitting && <ButtonSpinner />}
         </button>
       </form>
     </div>

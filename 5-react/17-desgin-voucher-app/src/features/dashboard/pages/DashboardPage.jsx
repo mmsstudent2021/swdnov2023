@@ -7,6 +7,7 @@ import {
 import Container from "../../../components/Container";
 import ModuleButton from "../components/ModuleButton";
 import LogoutButton from "../../../components/LogoutButton";
+import { LuDatabase, LuDatabaseBackup, LuFiles, LuMonitor, LuUsers } from "react-icons/lu";
 
 const DashboardPage = () => {
   return (
@@ -16,28 +17,28 @@ const DashboardPage = () => {
           <div className=" col-span-1 row-span-1">
             <ModuleButton
               name={"Product Module"}
-              icon={<HiCircleStack className=" size-14" />}
+              icon={<LuDatabaseBackup className=" size-14" />}
               url={"/dashboard/products"}
             />
           </div>
           <div className=" col-span-1 row-span-1">
             <ModuleButton
               name={"Sale Module"}
-              icon={<HiComputerDesktop className=" size-14" />}
+              icon={<LuMonitor className=" size-14" />}
               url={"/dashboard/sale"}
             />
           </div>
           <div className=" col-span-1 row-span-1">
             <ModuleButton
               name={"Voucher Module"}
-              icon={<HiDocumentDuplicate className=" size-14" />}
-              url={"/dashboard/voucher"}
+              icon={<LuFiles className=" size-14" />}
+              url={"/dashboard/vouchers"}
             />
           </div>
           <div className=" col-span-1 row-span-1">
             <ModuleButton
               name={"User Profile"}
-              icon={<HiUserCircle className=" size-14" />}
+              icon={<LuUsers className=" size-14" />}
               url={"/dashboard/user-profile"}
             />
           </div>

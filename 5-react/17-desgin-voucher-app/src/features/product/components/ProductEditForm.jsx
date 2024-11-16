@@ -6,6 +6,7 @@ import { tailspin } from "ldrs";
 import toast from "react-hot-toast";
 import useSWR, { useSWRConfig } from "swr";
 import { fetchProducts, updateProduct } from "../../../services/product";
+import ButtonSpinner from "../../../components/ButtonSpinner";
 
 tailspin.register();
 
@@ -13,7 +14,7 @@ const ProductEditForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm();
 
@@ -235,17 +236,11 @@ const ProductEditForm = () => {
 
           <button
             type="submit"
-            className="text-white bg-blue-700 inline-flex gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            disabled={isSubmitting}
+            className="text-white bg-blue-700 inline-flex gap-3 items-center justify-center disabled:pointer-events-none disabled:opacity-80 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             <span>Update Product</span>
-            {isSending && (
-              <l-tailspin
-                size="20"
-                stroke="5"
-                speed="0.9"
-                color="white"
-              ></l-tailspin>
-            )}
+            {isSubmitting && <ButtonSpinner />}
           </button>
         </form>
       )}
