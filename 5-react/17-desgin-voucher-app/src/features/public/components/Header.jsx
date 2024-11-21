@@ -5,7 +5,6 @@ import useCookie from "react-use-cookie";
 const Header = () => {
   const [user] = useCookie("user");
 
-  console.log(user)
 
 
   return (

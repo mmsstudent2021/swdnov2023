@@ -1,5 +1,6 @@
 import Container from "../../../components/Container";
 import BreadCrumb from "../../../components/BreadCrumb";
+import VoucherCard from "../components/VoucherCard";
 
 const VoucherDetailPage = () => {
   return (
@@ -7,8 +8,9 @@ const VoucherDetailPage = () => {
       <Container>
         <BreadCrumb
           currentPageTitle={"Voucher Detail"}
-          links={[{ title: "Voucher Module", path: "/vouchers" }]}
+          links={[{ title: "Voucher Module", path: "/dashboard/vouchers" }]}
         />
+        <VoucherCard />
       </Container>
     </section>
   );
