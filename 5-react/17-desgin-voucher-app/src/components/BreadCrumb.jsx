@@ -8,7 +8,7 @@ const BreadCrumb = ({ currentPageTitle, links }) => {
   const navigate = useNavigate();
 
   return (
-    <div className=" w-full flex items-center justify-between gap-3 mb-5 border-y py-2">
+    <div className=" w-full flex items-center justify-between gap-3 mb-5 border-y py-3">
       <nav className="flex" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
           <li className="inline-flex  items-center">
