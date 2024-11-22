@@ -1,33 +1,18 @@
+import React from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { register as accountRegister } from "../../../services/auth";
+import { Link } from "react-router-dom";
 import ButtonSpinner from "../../../components/ButtonSpinner";
+import useRegister from "../hooks/useRegister";
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
 
-  const handleRegister = async (data) => {
-    console.log(data);
+  const { handleRegister } = useRegister();
 
-    const res = await accountRegister(data);
-
-    const json = await res.json();
-
-    if (res.status === 200) {
-      toast.success("Register Successfully");
-      // console.log(json)
-      navigate("/login");
-    } else {
-      toast.error(json.message);
-    }
-  };
   return (
     <form
       onSubmit={handleSubmit(handleRegister)}
@@ -35,7 +20,7 @@ const RegisterForm = () => {
     >
       <div>
         <label
-          htmlFor="email"
+          htmlFor="name"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Your Name
@@ -45,7 +30,7 @@ const RegisterForm = () => {
           id="name"
           {...register("name")}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="eg. John Doe"
+          placeholder="e.g., John Doe"
         />
       </div>
       <div>
@@ -60,7 +45,7 @@ const RegisterForm = () => {
           id="email"
           {...register("email")}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="eg. john@company.com"
+          placeholder="e.g., john@company.com"
         />
       </div>
       <div>

@@ -1,36 +1,17 @@
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import useCookie from "react-use-cookie";
-import { login } from "../../../services/auth";
+import { Link } from "react-router-dom";
 import ButtonSpinner from "../../../components/ButtonSpinner";
+import useLogin from "../hooks/useLogin";
 
-const LoginFrom = () => {
-  const navigate = useNavigate();
-
+const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
 
-  const [token, setToken] = useCookie("my_token");
-  const [userCookie, setUserCookie] = useCookie("user");
+  const { handleLogin } = useLogin();
 
-  const handleLogin = async (data) => {
-    const res = await login(data);
-
-    const json = await res.json();
-
-    if (res.status === 200) {
-      toast.success("Login Successfully");
-      setToken(json.token);
-      setUserCookie(JSON.stringify(json.user));
-      navigate("/dashboard");
-    } else {
-      toast.error(json.message);
-    }
-  };
   return (
     <form
       className="space-y-4 md:space-y-6"
@@ -97,7 +78,6 @@ const LoginFrom = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        
         className="w-full text-white flex disabled:pointer-events-none disabled:opacity-80 justify-center items-center gap-3 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Sign in
@@ -116,4 +96,4 @@ const LoginFrom = () => {
   );
 };
 
-export default LoginFrom;
+export default LoginForm;
