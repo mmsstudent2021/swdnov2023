@@ -1,74 +1,26 @@
-import { useEffect, useRef, useState } from "react";
 import { HiSearch } from "react-icons/hi";
 import { HiPlus } from "react-icons/hi2";
-import useSWR from "swr";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
-import { debounce } from "lodash";
+import { Link } from "react-router-dom";
 import ProductLoader from "./ProductLoader";
 import ProductEmptyStage from "./ProductEmptyStage";
 import ProductRow from "./ProductRow";
-import { fetchProducts } from "../../../services/product";
 import Pagination from "../../../components/Pagination";
-import { urlToParamObject } from "../../../utils/url";
 import Sortable from "../../../components/Sortable";
+import useProduct from "../hooks/useProduct";
 
 const ProductTable = () => {
-  const [params, setParams] = useSearchParams();
-
-  const location = useLocation();
-
-  const searchRef = useRef();
-
-  useEffect(() => {
-    if (params.get("q")) {
-      searchRef.current.value = params.get("q");
-    }
-  }, []);
-
-  const [fetchUrl, setFetchUrl] = useState(
-    import.meta.env.VITE_API_URL + "/products" + location.search
-  );
-
-  const { data, isLoading, error } = useSWR(fetchUrl, fetchProducts);
-
-  const handleSearchInput = debounce((e) => {
-    if (e.target.value) {
-      setParams({ q: e.target.value });
-      setFetchUrl(
-        `${import.meta.env.VITE_API_URL}/products?q=${e.target.value}`
-      );
-    } else {
-      setParams({});
-      setFetchUrl(`${import.meta.env.VITE_API_URL}/products`);
-    }
-  }, 500);
-
-  const clearSearchInput = () => {
-    setCurrentSearchValue("");
-  };
-
-  const updateFetchUrl = (url) => {
-    setFetchUrl(url);
-    setParams(urlToParamObject(url));
-    setFetchUrl(url);
-  };
-
-  const handleSort = (sortData) => {
-    console.log(sortData);
-    const sortParams = new URLSearchParams(sortData).toString();
-    setParams(sortData);
-    setFetchUrl(`${import.meta.env.VITE_API_URL}/products?${sortParams}`);
-  };
-
-  // if (isLoading) {
-  //   return <ProductLoader />;
-  // }
-
-  // console.log(data);
+  const {
+    searchRef,
+    data,
+    isLoading,
+    handleSearchInput,
+    updateFetchUrl,
+    handleSort,
+  } = useProduct();
 
   return (
     <div>
-      <div className=" flex justify-between mb-3">
+      <div className="flex justify-between mb-3">
         <div className="">
           <div className="relative mb-6">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">

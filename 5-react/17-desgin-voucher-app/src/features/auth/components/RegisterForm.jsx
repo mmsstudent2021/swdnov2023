@@ -1,33 +1,11 @@
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { register as accountRegister } from "../../../services/auth";
+import { Link } from "react-router-dom";
 import ButtonSpinner from "../../../components/ButtonSpinner";
+import useRegister from "../hooks/useRegister";
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
+  const { register, handleSubmit, handleRegister, isSubmitting } =
+    useRegister();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm();
-
-  const handleRegister = async (data) => {
-    console.log(data);
-
-    const res = await accountRegister(data);
-
-    const json = await res.json();
-
-    if (res.status === 200) {
-      toast.success("Register Successfully");
-      // console.log(json)
-      navigate("/login");
-    } else {
-      toast.error(json.message);
-    }
-  };
   return (
     <form
       onSubmit={handleSubmit(handleRegister)}

@@ -1,61 +1,22 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-
-import { tailspin } from "ldrs";
-import toast from "react-hot-toast";
-import { storeProduct } from "../../../services/product";
+import { Link } from "react-router-dom";
 import ButtonSpinner from "../../../components/ButtonSpinner";
-
-tailspin.register();
-
-// Default values shown
+import { useCreateProduct } from "../hooks/useCreateProduct";
 
 const ProductCreateForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-    reset,
-  } = useForm();
-
-  const navigate = useNavigate();
-
-  const handleCreateProduct = async (data) => {
-    console.log(data);
-    try {
-      const res = await storeProduct(data.product_name, data.price);
-      const json = await res.json();
-
-      if (res.status !== 201) {
-        toast.error(json.message);
-        return;
-      }
-
-      toast.success("Product created successfully");
-
-      reset();
-
-      if (data.back_to_product_list) {
-        navigate("/dashboard/products");
-      }
-    } catch (error) {
-      toast.error("An error occurred while creating the product.");
-      console.error("Error:", error);
-    }
-  };
+  const { createProduct, register, handleSubmit, isSubmitting, errors } =
+    useCreateProduct();
 
   return (
-    <div className="  rounded-lg w-full md:w-1/2">
-      <h1 className=" text-3xl font-bold mb-3">Create New Product</h1>
-      <p className=" mb-10 text-stone-500">
+    <div className="rounded-lg w-full md:w-1/2">
+      <h1 className="text-3xl font-bold mb-3">Create New Product</h1>
+      <p className="mb-10 text-stone-500">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. At alias
         necessitatibus quos earum itaque.
       </p>
-      <form onSubmit={handleSubmit(handleCreateProduct)}>
-        <div className=" mb-5">
+      <form onSubmit={handleSubmit(createProduct)}>
+        <div className="mb-5">
           <label
-            htmlFor="first_name"
+            htmlFor="product_name"
             className={`block mb-2 text-sm font-medium ${
               errors.product_name ? "text-red-500" : "text-gray-900"
             } dark:text-white`}
@@ -73,28 +34,22 @@ const ProductCreateForm = () => {
               errors.product_name
                 ? "border-red-500 focus:ring-red-500 focus:border-red-500"
                 : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-            } text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
-            placeholder="eg. apple"
+            } text-gray-900 text-sm rounded-lg block w-full p-2.5`}
+            placeholder="e.g., apple"
           />
-          {errors.product_name?.type === "required" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product name is required
-            </p>
-          )}
-          {errors.product_name?.type === "minLength" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product name must be greater than 3 characters
-            </p>
-          )}
-          {errors.product_name?.type === "maxLength" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product name must be less than 10 characters
+          {errors.product_name && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.product_name.type === "required"
+                ? "Product name is required"
+                : errors.product_name.type === "minLength"
+                ? "Product name must be greater than 3 characters"
+                : "Product name must be less than 30 characters"}
             </p>
           )}
         </div>
-        <div className=" mb-8">
+        <div className="mb-8">
           <label
-            htmlFor="last_name"
+            htmlFor="price"
             className={`block mb-2 text-sm font-medium ${
               errors.price ? "text-red-500" : "text-gray-900"
             } dark:text-white`}
@@ -112,22 +67,16 @@ const ProductCreateForm = () => {
               errors.price
                 ? "border-red-500 focus:ring-red-500 focus:border-red-500"
                 : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-            } text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
-            placeholder="eg. 500"
+            } text-gray-900 text-sm rounded-lg block w-full p-2.5`}
+            placeholder="e.g., 500"
           />
-          {errors.price?.type === "required" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product price is required
-            </p>
-          )}
-          {errors.price?.type === "min" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product price must be greater than 100 characters
-            </p>
-          )}
-          {errors.price?.type === "max" && (
-            <p className=" text-red-500 text-sm mt-1">
-              Product price must be less than 10000 characters
+          {errors.price && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.price.type === "required"
+                ? "Product price is required"
+                : errors.price.type === "min"
+                ? "Product price must be at least 100"
+                : "Product price must be less than 10000"}
             </p>
           )}
         </div>
@@ -138,14 +87,13 @@ const ProductCreateForm = () => {
             required
             id="all-correct"
             type="checkbox"
-            value=""
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
           />
           <label
             htmlFor="all-correct"
-            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ml-2 text-sm font-medium text-gray-900"
           >
-            Make sure all field are correct
+            Make sure all fields are correct
           </label>
         </div>
 
@@ -154,12 +102,11 @@ const ProductCreateForm = () => {
             {...register("back_to_product_list")}
             id="back-to-product-list"
             type="checkbox"
-            value=""
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
           />
           <label
             htmlFor="back-to-product-list"
-            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ml-2 text-sm font-medium text-gray-900"
           >
             Back to Product List after saving
           </label>
@@ -167,7 +114,7 @@ const ProductCreateForm = () => {
 
         <Link
           to="/product"
-          className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4"
         >
           Cancel
         </Link>
@@ -175,7 +122,7 @@ const ProductCreateForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="text-white bg-blue-700 disabled:pointer-events-none disabled:opacity-80 inline-flex items-center justify-center gap-3 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 disabled:pointer-events-none disabled:opacity-80 inline-flex items-center justify-center gap-3 hover:bg-blue-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
         >
           <span>Save Product</span>
           {isSubmitting && <ButtonSpinner />}
